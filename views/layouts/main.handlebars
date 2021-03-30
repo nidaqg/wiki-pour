@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki Pour</title>
+    <!--linking to reset.css-->
+    <link rel= "stylesheet" href="/reset.css">
+    <!--linking to Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css"> 
+</head>
+
+<body>
+  <!--header with navbar and header image-->
+  <header>
+    <img src="/images/header-image.png" alt="header-image" class="img-fluid">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <section class="container-fluid">
+          <button class="navbar-toggler justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <section class="collapse navbar-collapse justify-content-center" id="navbarLinks">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                  </li>
+                  {{#if logged_in}}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/profile">Profile</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="logout">Logout</a>
+                  </li>
+                  {{else}}
+                  <li class="nav-item">
+                    <a class="nav-link" href="/login">Login or Signup</a>
+                  </li>
+                  {{/if}}
+                </ul>
+            </section>
+        </section>
+      </nav>  
+  </header>
+   
+  <main class="container-fluid flex-shrink-0 mt-3">
+    <section class="row">
+          {{{body}}}  
+    </section>
+
+  </main>
+
+  <footer class="footer mt-auto py-2 bg-dark">
+    <h5 class="text-white text-center">copyrights reserved</h5>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+{{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+</html>

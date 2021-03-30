@@ -1,0 +1,31 @@
+<section class="col-md-3 ms-4 mt-3 mb-3 text-center">
+        <h5 class="text-center mt-2">Search the wiki</h5>
+            <input class="form-control me-2 mb-3" type="search" id="userInput" placeholder="Search" aria-label="Search">
+            <button class="btn btn-dark mb-3" id="searchButton" type="submit">Search</button>
+            <section class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Search by Category
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#">Spirits</a></li>
+                <li><a class="dropdown-item" href="#">Beer</a></li>
+                <li><a class="dropdown-item" href="#">Wine</a></li>
+                <li><a class="dropdown-item" href="#">Non-Alcoholic Drinks</a></li>
+                </ul>
+            </section>
+      </section>
+
+<section class="col-md-8 m-3">
+  <h3 class="text-center mt-2">Heading</h3>
+
+{{#each cocktails as |cocktail|}}
+
+<section class="card mt-3 mb-3">
+   <h4 class="card-header text-center">{{cocktail.cocktail_name}}</h4>
+    <section class="card-body">
+        <p>{{cocktail.details}}</p>
+    </section>
+</section>
+{{/each}}
+</section>
+

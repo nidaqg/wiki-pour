@@ -1,0 +1,1 @@
+// BrandName belongs to category types

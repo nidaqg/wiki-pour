@@ -6,8 +6,9 @@
   <section class="card m-2 localCard">
     <section class="card-body">
      <h4 class="card-header text-center">{{cocktail.cocktail_name}}</h4>
+     <h5 class="card-header text-center text-muted">Created by: {{cocktail.user.name}}</h5>
      <section class="card-body">
-        <p>This will hold info depending on what models we include in the get route</p>
+        <p>{{cocktail.categoryType.categoryType_name}}</p>
      </section>
     </section>
     <a href="/edit-recipe/{{cocktail.id}}" class="text-muted">Edit or Delete Recipe -></a>

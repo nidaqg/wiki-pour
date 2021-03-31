@@ -10,16 +10,28 @@ router.get('/', withAuth, async (req, res) => {
             },
             include: [
                 {
-                    // model: User,
-                    // attributes: ['name'],
+                    model: Ingredient,
+                    attributes: ['ingredient_name'],
                 },
                 {
-                    // model: Comment,
-                    // attributes: ['id', 'comment', 'post_id', 'user_id', 'created_at'],
-                    // include: {
-                    //     model: User,
-                    //     attributes: ['name']
-                    // }
+                    model: BrandName,
+                    attributes: ['brand_name'],
+                },
+                {
+                    model: CategoryType,
+                    attributes: ['categoryType_name'],
+                    include: {
+                        model: Category,
+                        attributes: ['category_name']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['name'],
+                    include: {
+                        model: Rating,
+                        attributes: ['rating']
+                    }
                 },
             ],
         });
@@ -51,16 +63,28 @@ router.get('/editrecipe/:id', withAuth, async (req, res) => {
             ],
             include: [
                 {
-                    // model: User,
-                    // attributes: ['name'],
+                    model: Ingredient,
+                    attributes: ['ingredient_name'],
                 },
                 {
-                    // model: Comment,
-                    // attributes: ['id', 'comment', 'post_id', 'user_id', 'created_at'],
-                    // include: {
-                    //     model: User,
-                    //     attributes: ['name']
-                    // }
+                    model: BrandName,
+                    attributes: ['brand_name'],
+                },
+                {
+                    model: CategoryType,
+                    attributes: ['categoryType_name'],
+                    include: {
+                        model: Category,
+                        attributes: ['category_name']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['name'],
+                    include: {
+                        model: Rating,
+                        attributes: ['rating']
+                    }
                 },
             ],
         });

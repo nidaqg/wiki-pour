@@ -1,13 +1,33 @@
 const router = require('express').Router();
-const { Cocktail } = require('../models');
+const { Cocktail, Ingredient, BrandName, CategoryType, Rating } = require('../models');
 
 router.get('/', async (req, res) => {
     try {
         const cocktailData = await Cocktail.findAll({
             include: [
                 {
-                    // model: User, *** need to pull proper models***
-                    // attributes: ['name'],
+                    model: Ingredient,
+                    attributes: ['ingredient_name'],
+                },
+                {
+                    model: BrandName,
+                    attributes: ['brand_name'],
+                },
+                {
+                    model: CategoryType,
+                    attributes: ['categoryType_name'],
+                    include: {
+                        model: Category,
+                        attributes: ['category_name']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['name'],
+                    include: {
+                        model: Rating,
+                        attributes: ['rating']
+                    }
                 },
             ],
         });
@@ -28,16 +48,28 @@ router.get('/cocktail/:id', async (req, res) => {
         const cocktailData = await Post.findByPk(req.params.id, {
             include: [
                 {
-                    // model: User, *** need to pull proper models***
-                    // attributes: ['name'],
+                    model: Ingredient,
+                    attributes: ['ingredient_name'],
                 },
                 {
-                    // model: Comment,
-                    // attributes: ['id', 'comment', 'post_id', 'user_id', 'created_at'],
-                    // include: {
-                    //     model: User,
-                    //     attributes: ['name']
-                    // }
+                    model: BrandName,
+                    attributes: ['brand_name'],
+                },
+                {
+                    model: CategoryType,
+                    attributes: ['categoryType_name'],
+                    include: {
+                        model: Category,
+                        attributes: ['category_name']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['name'],
+                    include: {
+                        model: Rating,
+                        attributes: ['rating']
+                    }
                 },
             ],
         });

@@ -6,7 +6,7 @@ const Cocktail = require('./Cocktail');
 const Ingredient = require('./Ingredient');
 const Rating = require('./Rating');
 const User = require('./User');
-const UserRating = require('./UserRating');
+const CocktailRating = require('./CocktailRating');
 
 Category.hasMany(CategoryType, {
     foreignKey: 'category_id',
@@ -71,6 +71,7 @@ module.exports = {
     Ingredient,
     Rating,
     User,
+    CocktailRating,
   };
 
 

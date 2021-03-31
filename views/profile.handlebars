@@ -1,0 +1,24 @@
+<section class="row justify-content-center text-center">
+<section class="col-sm-8 justify-content-center text-center mb-4">
+
+{{#each cocktails as |cocktail|}}
+<section class="row">
+  <section class="card m-2 localCard">
+    <section class="card-body">
+     <h4 class="card-header text-center">{{cocktail.cocktail_name}}</h4>
+     <section class="card-body">
+        <p>This will hold info depending on what models we include in the get route</p>
+     </section>
+    </section>
+    <a href="/edit-recipe/{{cocktail.id}}" class="text-muted">Edit or Delete Recipe -></a>
+  </section>
+</section>
+{{/each}}
+
+<section class="row justify-content-center text-center mt-4">
+<button id= "newRecipe" class="btn btn-dark localBtn btn-lg mb-3">Create New Recipe</button>
+</section>
+
+</section>
+</section>
+<script src="/js/profile.js"></script>

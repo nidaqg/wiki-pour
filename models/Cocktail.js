@@ -15,18 +15,6 @@ Cocktail.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    instructions: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    categoryType_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'category',
-        key: 'id',
-        unique: false
-      },
-    },
     brandName_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -34,6 +22,10 @@ Cocktail.init(
         key: 'id',
         unique: false
       },
+    },
+    instructions: {
+      type: DataTypes.STRING,
+      allowNull: false
     },
     ingredient_id: {
       type: DataTypes.INTEGER,

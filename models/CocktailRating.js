@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require("../config/connection");
 
-class UserRating extends Model {}
+class CocktailRating extends Model {}
 
-UserRating.init(
+CocktailRating.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -11,10 +11,10 @@ UserRating.init(
         primaryKey: true,
         autoIncrement: true
       },
-      user_id: {
+      cockatil_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'user',
+          model: 'cockatil',
           key: 'id',
           unique: false
         }
@@ -33,8 +33,8 @@ UserRating.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'user_rating',
+      modelName: 'cockatil_rating',
     }
   );
 
-  module.exports = UserRating;
+  module.exports = CocktailRating;

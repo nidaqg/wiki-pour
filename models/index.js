@@ -28,6 +28,11 @@ User.hasMany(Cocktail, {
     foreignKey: 'user_id',
 });
 
+Cocktail.hasMany(BrandName, {
+    foreignKey: 'brandName_id'
+});
+
+
 Cocktail.belongsTo(User, {
     foreignKey: 'user_id',
 });
@@ -40,17 +45,17 @@ Ingredient.belongsTo(Cocktail, {
     foreignKey: 'ingredient_id',
 });
 
-User.belongstoMany(Rating, {
+Cocktail.belongstoMany(Rating, {
     through: {
-        model: UserRating,
+        model: CockatilRating,
         unique: false
     },
-    as: 'usersRatings'
+    as: 'CockatilRatings'
 });
 
-Rating.belongstoMany(User, {
+Rating.belongstoMany(Cocktail, {
     through: {
-        model: UserRating,
+        model: CocktailRating,
         unique: false
     },
     as: 'ratings'

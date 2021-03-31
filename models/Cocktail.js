@@ -15,7 +15,11 @@ Cocktail.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    category_id: {
+    instructions: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    categoryType_id: {
       type: DataTypes.INTEGER,
       references: {
         model: 'category',
@@ -47,14 +51,6 @@ Cocktail.init(
         unique: false
       },
     },
-    rating_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'rating',
-        key: 'id',
-        unique: false
-      },
-    }
   },
   {
     sequelize,

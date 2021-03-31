@@ -1,0 +1,20 @@
+<section class="row justify-content-center text-center">
+<section class="col-sm-8 justify-content-center text-center mb-4">
+
+<section class="row">
+  <section class="card m-2">
+    <section class="card-body">
+      <h5 class="text-center card-title">{{cocktail.cocktail_name}}</h5>
+      <h6 class= "text-center card-subtitle mb-2 text-muted">Created by: {{cocktail.user.username}}</h6>
+      <p class="card-text">User Rating: {{cocktail.rating.rating}}</p>
+        <p class = "card-text">Category: {{cocktail.category.category_name}}</p>
+        <p class="card-text">ingredients:</p>
+        {{#each cocktail.ingredient as |ingredient|}}
+        <il>{{ingredient}}</il>
+        {{/each}}
+    </section>
+  </section>
+</section>
+
+</section>
+</section>

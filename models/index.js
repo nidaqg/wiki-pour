@@ -20,17 +20,21 @@ CategoryType.hasMany(BrandName, {
     foreignKey: 'categoryType_id',
 });
 
-BrandName.belongsTo(CategoryType, {
-    foreignKey: 'categoryType_id',
-});
+// BrandName.belongsTo(CategoryType, {
+//     foreignKey: 'categoryType_id',
+// });
 
 User.hasMany(Cocktail, {
     foreignKey: 'user_id',
 });
 
-Cocktail.hasMany(BrandName, {
-    foreignKey: 'brandName_id'
-});
+// Cocktail.hasMany(BrandName, {
+//     foreignKey: 'brandName_id'
+// });
+
+// BrandName.belongsTo(Cocktail, {
+//     foreignKey: 'brandName_id',
+// });
 
 
 Cocktail.belongsTo(User, {
@@ -41,19 +45,19 @@ Cocktail.hasMany(Ingredient, {
     foreignKey: 'ingredient_id',
 });
 
-Ingredient.belongsTo(Cocktail, {
-    foreignKey: 'ingredient_id',
-});
+// Ingredient.belongsTo(Cocktail, {
+//     foreignKey: 'ingredient_id',
+// });
 
-Cocktail.belongstoMany(Rating, {
+Cocktail.belongsToMany(Rating, {
     through: {
-        model: CockatilRating,
+        model: CocktailRating,
         unique: false
     },
-    as: 'CockatilRatings'
+    as: 'CocktailRating'
 });
 
-Rating.belongstoMany(Cocktail, {
+Rating.belongsToMany(Cocktail, {
     through: {
         model: CocktailRating,
         unique: false

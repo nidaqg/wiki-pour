@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS pour_db;
+CREATE DATABASE pour_db;

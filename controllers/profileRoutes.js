@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Cocktail } = require('../models');
+const { Cocktail, Ingredient, BrandName, CategoryType, Rating } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -28,11 +28,12 @@ router.get('/', withAuth, async (req, res) => {
                 {
                     model: User,
                     attributes: ['name'],
-                    include: {
-                        model: Rating,
-                        attributes: ['rating']
-                    }
+                    // include: {
+                    //     model: Rating,
+                    //     attributes: ['rating']
+                    // }
                 },
+                { model: Rating, through: CockatilRating, as: 'CockatilRatings' },
             ],
         });
 
@@ -81,11 +82,12 @@ router.get('/editrecipe/:id', withAuth, async (req, res) => {
                 {
                     model: User,
                     attributes: ['name'],
-                    include: {
-                        model: Rating,
-                        attributes: ['rating']
-                    }
+                    // include: {
+                    //     model: Rating,
+                    //     attributes: ['rating']
+                    // }
                 },
+                { model: Rating, through: CockatilRating, as: 'CockatilRatings' },
             ],
         });
 

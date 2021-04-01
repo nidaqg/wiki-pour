@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Cockatil } = require('../../models');
+const { Cocktail } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {

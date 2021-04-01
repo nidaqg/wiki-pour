@@ -24,11 +24,12 @@ router.get('/', async (req, res) => {
                 {
                     model: User,
                     attributes: ['name'],
-                    include: {
-                        model: Rating,
-                        attributes: ['rating']
-                    }
+                    // include: {
+                    //     model: Rating,
+                    //     attributes: ['rating']
+                    // }
                 },
+                { model: Rating, through: CockatilRating, as: 'CockatilRatings' },
             ],
         });
 
@@ -66,11 +67,12 @@ router.get('/cocktail/:id', async (req, res) => {
                 {
                     model: User,
                     attributes: ['name'],
-                    include: {
-                        model: Rating,
-                        attributes: ['rating']
-                    }
+                    // include: {
+                    //     model: Rating,
+                    //     attributes: ['rating']
+                    // }
                 },
+                { model: Rating, through: CockatilRating, as: 'CockatilRatings' },
             ],
         });
 

@@ -7,6 +7,9 @@ const Ingredient = require('./Ingredient');
 const Rating = require('./Rating');
 const User = require('./User');
 const CocktailRating = require('./CocktailRating');
+const CocktailIngredient = require('./CocktailIngredient');
+const CocktailCategoryType = require('./CocktailCategoryType');
+const CategoryBrand = require('./CategoryBrand');
 
 Category.hasMany(CategoryType, {
     foreignKey: 'category_id',
@@ -41,9 +44,9 @@ Cocktail.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
-Cocktail.hasMany(Ingredient, {
-    foreignKey: 'ingredient_id',
-});
+// Cocktail.hasMany(Ingredient, {
+//     foreignKey: 'ingredient_id',
+// });
 
 // Ingredient.belongsTo(Cocktail, {
 //     foreignKey: 'ingredient_id',
@@ -65,6 +68,56 @@ Rating.belongsToMany(Cocktail, {
     as: 'ratings'
 });
 
+Cocktail.belongsToMany(Ingredient, {
+    through: {
+        model: CocktailIngredient,
+        unique: false
+    },
+    as: 'cocktailIngredients'
+});
+
+Ingredient.belongsToMany(Cocktail, {
+    through: {
+        model: CocktailIngredient,
+        unique: false
+    },
+    as: 'cocktails'
+});
+
+Cocktail.belongsToMany(Category, {
+    through: {
+        model: CocktailCategoryType,
+        unique: false
+    },
+    as: 'cocktailCategoryType'
+});
+
+Category.belongsToMany(Cocktail, {
+    through: {
+        model: CocktailCategoryType,
+        unique: false
+    },
+    as: 'categoryType'
+});
+
+Category.belongsToMany(BrandName, {
+    through: {
+        model: CategoryBrand,
+        unique: false
+    },
+    as: 'categoryBrand'
+});
+
+BrandName.belongsToMany(Category, {
+    through: {
+        model: CategoryBrand,
+        unique: false
+    },
+    as: 'brand'
+});
+
+
+
 
 
 module.exports = {
@@ -76,6 +129,9 @@ module.exports = {
     Rating,
     User,
     CocktailRating,
+    CocktailIngredient,
+    CocktailCategoryType,
+    CategoryBrand,
   };
 
 

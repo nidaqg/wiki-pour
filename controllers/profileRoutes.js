@@ -33,7 +33,7 @@ router.get('/', withAuth, async (req, res) => {
                     //     attributes: ['rating']
                     // }
                 },
-                { model: Rating, through: CockatilRating, as: 'CockatilRatings' },
+                { model: Rating, through: CocktailRating, as: 'CocktailRatings' },
             ],
         });
 
@@ -87,7 +87,7 @@ router.get('/editrecipe/:id', withAuth, async (req, res) => {
                     //     attributes: ['rating']
                     // }
                 },
-                { model: Rating, through: CockatilRating, as: 'CockatilRatings' },
+                { model: Rating, through: CocktailRating, as: 'CocktailRatings' },
             ],
         });
 

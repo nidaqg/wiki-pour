@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
                     //     attributes: ['rating']
                     // }
                 },
-                { model: Rating, through: CockatilRating, as: 'CockatilRatings' },
+                { model: Rating, through: CocktailRating, as: 'CocktailRatings' },
             ],
         });
 
@@ -72,7 +72,7 @@ router.get('/cocktail/:id', async (req, res) => {
                     //     attributes: ['rating']
                     // }
                 },
-                { model: Rating, through: CockatilRating, as: 'CockatilRatings' },
+                { model: Rating, through: CocktailRating, as: 'CocktailRatings' },
             ],
         });
 

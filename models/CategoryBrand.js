@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require("../config/connection");
 
-class CocktailRating extends Model {}
+class CategoryBrand extends Model {}
 
-CocktailRating.init(
+CategoryBrand.init(
     {
       id: {
         type: DataTypes.INTEGER,
@@ -11,18 +11,18 @@ CocktailRating.init(
         primaryKey: true,
         autoIncrement: true
       },
-      cocktail_id: {
+      category_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'cocktail',
+          model: 'category',
           key: 'id',
           unique: false
         }
       },
-      rating_id: {
+      brandName_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'rating',
+          model: 'brandName',
           key: 'id',
           unique: false
         }
@@ -33,8 +33,8 @@ CocktailRating.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: 'cocktail_rating',
+      modelName: 'category_brand',
     }
   );
 
-  module.exports = CocktailRating;
+  module.exports = CategoryBrand;

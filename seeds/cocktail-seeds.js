@@ -12,7 +12,7 @@ const cocktailData = [
     cocktail_name: 'Negroni',
     instructions: 'Pour one once each of Gin Campari and sweet vermouth into a stirring glass. Stir then strain into rocks glass. Garnish with orange peel',
     brandName_id: [2, 3, 4],
-    ingredient_id: [1, 2, 3],
+    ingredient_id: 3,
     user_id: 2,
   },
 ];

@@ -43,6 +43,14 @@ Cocktail.init(
         unique: false
       },
     },
+    rating_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'rating',
+        key: 'id',
+        unique: false
+      },
+    }
   },
   {
     sequelize,

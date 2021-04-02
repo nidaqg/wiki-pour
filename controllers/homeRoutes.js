@@ -28,9 +28,21 @@ router.get('/', async (req, res) => {
   }
 });
 
+
+router.get('/spirits', async (req, res) => {
+  try {
+    res.render('spirits', {
+      logged_in: req.session.logged_in
+  
+      });
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
 router.get('/cocktail/:id', async (req, res) => {
   try {
-    const cocktailData = await Post.findByPk(req.params.id, {
+    const cocktailData = await Cocktail.findByPk(req.params.id, {
       include: [
         { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
         {
@@ -45,8 +57,7 @@ router.get('/cocktail/:id', async (req, res) => {
     });
 
     const cocktail = cocktailData.get({ plain: true });
-
-    // res.status(200).json(post);
+    // res.status(200).json(cocktail);
     res.render('single-cocktail', {
       cocktail,
       logged_in: req.session.logged_in

@@ -2,7 +2,7 @@
 <section class="col-md-3 ms-4 mt-3 mb-3 text-center">
         <h5 class="text-center mt-2">Search the wiki</h5>
             <input class="form-control me-2 mb-3" type="search" id="userInput" placeholder="Search" aria-label="Search">
-            <button class="btn btn-dark mb-3" id="searchButton" type="submit">Search</button>
+            <button class="btn btn-dark localBtn mb-3" id="searchButton" type="submit">Search</button>
             <section class="dropdown">
               <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                 Search by Category
@@ -22,13 +22,16 @@
 {{#each cocktails as |cocktail|}}
 
 <section class="card mt-3 mb-3">
-   <h4 class="card-header text-center">{{cocktail.cocktail_name}}</h4>
-   <h5 class="card-header text-center text-muted">Created by: {{cocktail.user.name}}</h5>
+  <section class="card-header text-center">
+   <h4>{{cocktail.cocktail_name}}</h4>
+   <h5>Created by: {{cocktail.user.user_name}}</h5>
+   </section>
     <section class="card-body text-center">
-        <p>{{cocktail.rating.rating}}</p>
-        <button href="/cocktail/{{cocktail.id}}" class="btn btn-dark localBtn">Get the Recipe</button>
+        <p>{{cocktail.rating.cocktail_ratings}}</p>
+        <a href="/cocktail/{{cocktail.id}}" class="btn btn-dark localBtn">Get the Recipe</a>
     </section>
 </section>
+
 {{/each}}
 
 </section>

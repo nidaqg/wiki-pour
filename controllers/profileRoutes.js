@@ -9,11 +9,15 @@ router.get('/', withAuth, async (req, res) => {
                 user_id: req.session.user_id
             },
             include: [
-                //{ model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
-               // { model: BrandName, through: CategoryBrand, as: 'categoryType_Brand' },
-               // { model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes' },
-                { model: User, attributes: ['user_name'],},
-               // { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
+                { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
+                {
+                    model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes',
+                    include: [{
+                        model: BrandName, through: CategoryBrand, as: 'categoryType_Brand'
+                    }]
+                },
+                { model: User, attributes: ['user_name'], },
+                { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
             ],
         });
 
@@ -44,9 +48,13 @@ router.get('/editrecipe/:id', withAuth, async (req, res) => {
             ],
             include: [
                 { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
-                { model: BrandName, through: CategoryBrand, as: 'categoryType_Brand' },
-                { model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes' },
-                { model: User, attributes: ['name'],},
+                {
+                    model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes',
+                    include: [{
+                        model: BrandName, through: CategoryBrand, as: 'categoryType_Brand'
+                    }]
+                },
+                { model: User, attributes: ['user_name'], },
                 { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
             ],
         });

@@ -4,11 +4,11 @@ newPost.addEventListener('click', async function (event){
 event.preventDefault();
 
 const cocktail_name = document.querySelector('#recipe-name').value.trim();
-const content = document.querySelector('#recipe-content').value.trim();
+const instructions = document.querySelector('#recipe-content').value.trim();
 
-const response = await fetch(`/api`, {
+const response = await fetch(`/api/cocktail`, {
     method: 'POST',
-    body: JSON.stringify({cocktail_name,content}),
+    body: JSON.stringify({cocktail_name,instructions}),
     headers: { 'Content-Type': 'application/json' },
   });
 

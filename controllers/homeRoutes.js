@@ -67,4 +67,32 @@ router.get('/signup', (req, res) => {
     res.render('signup');
 });
 
+
+router.get('/edit/:id', async (req,res)=> {
+    if (!req.session.logged_in) {
+      res.redirect('/login');
+    } else {
+      // If the user is logged in, allow them to view edit page
+      try {
+        const cocktailData = await Cocktail.findByPk(req.params.id, {
+          include: [
+            {
+              model: User,
+              attributes: ['user_name'],
+            },
+          ],
+        });
+        const cocktail = cocktailData.get({ plain: true });
+        res.render('edit-recipe', { 
+          cocktail,
+          logged_in: req.session.logged_in,
+        });
+      } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+      }
+    }
+  })
+  
+
 module.exports = router;

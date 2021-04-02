@@ -2,18 +2,18 @@
 <section class="col-sm-8 justify-content-center text-center mb-4">
 
 {{#each cocktails as |cocktail|}}
-<section class="row">
   <section class="card m-2 localCard">
-    <section class="card-body">
-     <h4 class="card-header text-center">{{cocktail.cocktail_name}}</h4>
-     <h5 class="card-header text-center text-muted">Created by: {{cocktail.user.user_name}}</h5>
-     <section class="card-body">
-        <p>{{cocktail.categoryType.categoryType_name}}</p>
-     </section>
+
+    <section class="card-header text-center">
+     <h4>{{cocktail.cocktail_name}}</h4>
+     <h5>Created by: {{cocktail.user.user_name}}</h5>
     </section>
-    <a href="/edit-recipe/{{cocktail.id}}" class="text-muted">Edit or Delete Recipe -></a>
+    <section class="card-body mb-2">
+        <p>{{cocktail.instructions}}</p>
+    </section>
+
+    <a href="/edit/{{cocktail.id}}" class="text-muted">Edit or Delete Recipe -></a>
   </section>
-</section>
 {{/each}}
 
 <section class="row justify-content-center text-center mt-4">

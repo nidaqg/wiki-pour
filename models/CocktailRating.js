@@ -14,6 +14,7 @@ CocktailRating.init(
       cocktail_id: {
         type: DataTypes.INTEGER,
         references: {
+          onUpdate: 'CASCADE',
           model: 'cocktail',
           key: 'id',
           unique: false

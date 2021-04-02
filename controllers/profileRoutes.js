@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Cocktail, Ingredient, BrandName, CategoryType, Rating } = require('../models');
+const { Cocktail, User, Ingredient, BrandName, CategoryType, CocktailRating, Rating, CocktailIngredient, CategoryBrand, CocktailCategoryType } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -9,31 +9,11 @@ router.get('/', withAuth, async (req, res) => {
                 user_id: req.session.user_id
             },
             include: [
-                {
-                    model: Ingredient,
-                    attributes: ['ingredient_name'],
-                },
-                {
-                    model: BrandName,
-                    attributes: ['brand_name'],
-                },
-                {
-                    model: CategoryType,
-                    attributes: ['categoryType_name'],
-                    include: {
-                        model: Category,
-                        attributes: ['category_name']
-                    }
-                },
-                {
-                    model: User,
-                    attributes: ['name'],
-                    // include: {
-                    //     model: Rating,
-                    //     attributes: ['rating']
-                    // }
-                },
-                { model: Rating, through: CocktailRating, as: 'CocktailRatings' },
+                { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
+                { model: BrandName, through: CategoryBrand, as: 'categoryType_Brand' },
+                { model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes' },
+                { model: User, attributes: ['name'],},
+                { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
             ],
         });
 
@@ -63,31 +43,11 @@ router.get('/editrecipe/:id', withAuth, async (req, res) => {
                 'id',
             ],
             include: [
-                {
-                    model: Ingredient,
-                    attributes: ['ingredient_name'],
-                },
-                {
-                    model: BrandName,
-                    attributes: ['brand_name'],
-                },
-                {
-                    model: CategoryType,
-                    attributes: ['categoryType_name'],
-                    include: {
-                        model: Category,
-                        attributes: ['category_name']
-                    }
-                },
-                {
-                    model: User,
-                    attributes: ['name'],
-                    // include: {
-                    //     model: Rating,
-                    //     attributes: ['rating']
-                    // }
-                },
-                { model: Rating, through: CocktailRating, as: 'CocktailRatings' },
+                { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
+                { model: BrandName, through: CategoryBrand, as: 'categoryType_Brand' },
+                { model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes' },
+                { model: User, attributes: ['name'],},
+                { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
             ],
         });
 

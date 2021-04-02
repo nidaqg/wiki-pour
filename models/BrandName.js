@@ -15,14 +15,14 @@ BrandName.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    categoryType_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'categoryType',
-        key: 'id',
-        unique: false
-      },
-    }
+    // categoryType_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'categoryType',
+    //     key: 'id',
+    //     unique: false
+    //   },
+    // }
   },
   {
     sequelize,

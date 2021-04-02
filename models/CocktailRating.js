@@ -27,6 +27,14 @@ CocktailRating.init(
           key: 'id',
           unique: false
         }
+      },
+      user_id: {
+        type: DataTypes.INTEGER,
+        references: {
+          model: 'user',
+          key: 'id',
+          unique: false
+        }
       }
     },
     {

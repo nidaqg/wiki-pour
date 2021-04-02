@@ -15,26 +15,26 @@ Cocktail.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-    brandName_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'brandName',
-        key: 'id',
-        unique: false
-      },
-    },
+    // brandName_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'brandName',
+    //     key: 'id',
+    //     unique: false
+    //   },
+    // },
     instructions: {
       type: DataTypes.STRING,
       allowNull: false
     },
-    ingredient_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'ingredient',
-        key: 'id',
-        unique: false
-      },
-    },
+    // ingredient_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'ingredient',
+    //     key: 'id',
+    //     unique: false
+    //   },
+    // },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -43,14 +43,14 @@ Cocktail.init(
         unique: false
       },
     },
-    rating_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'rating',
-        key: 'id',
-        unique: false
-      },
-    }
+    // rating_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: 'rating',
+    //     key: 'id',
+    //     unique: false
+    //   },
+    // }
   },
   {
     sequelize,

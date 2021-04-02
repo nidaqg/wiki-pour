@@ -33,7 +33,7 @@ CocktailCategory.init(
       timestamps: false,
       freezeTableName: true,
       underscored: true,
-      modelName: '_category',
+      modelName: 'cocktail_categorytype',
     }
   );
 

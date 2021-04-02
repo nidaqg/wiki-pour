@@ -11,10 +11,10 @@ CategoryBrand.init(
         primaryKey: true,
         autoIncrement: true
       },
-      category_id: {
+      categoryType_id: {
         type: DataTypes.INTEGER,
         references: {
-          model: 'category',
+          model: 'categoryType',
           key: 'id',
           unique: false
         }

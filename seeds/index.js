@@ -5,10 +5,10 @@ const seedCocktails = require('./cocktail-seeds');
 const seedIngredients = require('./ingredient-seeds');
 const seedRatings = require('./rating-seeds');
 const seedUser = require('./user-seeds');
-// const seedCocktailRating = require('./cocktailRating-seeds');
-// const seedCategoryBrand = require('./categoryBrand-seeds');
-// const seedCocktailCategoryType = require('./cocktailCategoryType-seeds');
-// const seedCocktailIngredientData = require('./cocktailIngredient-seeds');
+const seedCocktailRating = require('./cocktailRating-seeds');
+const seedCategoryBrand = require('./categoryBrand-seeds');
+const seedCocktailCategoryType = require('./cocktailCategoryType-seeds');
+const seedCocktailIngredientData = require('./cocktailIngredient-seeds');
 
 const sequelize = require('../config/connection');
 
@@ -37,18 +37,17 @@ const seedAll = async () => {
     await seedCocktails();
     console.log('\n----- COCKTAILS SEEDED -----\n');
     
-    // await seedCocktailRating();
-    // console.log('\n----- CocktailRating SEEDED -----\n');
+    await seedCocktailRating();
+    console.log('\n----- CocktailRating SEEDED -----\n');
     
+    await seedCategoryBrand();
+    console.log('\n----- CategoryBrand SEEDED -----\n');
 
-    // await seedCategoryBrand();
-    // console.log('\n----- CategoryBrand SEEDED -----\n');
+    await seedCocktailCategoryType();
+    console.log('\n----- CocktailCategoryType SEEDED -----\n');
 
-    // await seedCocktailCategoryType();
-    // console.log('\n----- CocktailCategoryType SEEDED -----\n');
-
-    // await seedCocktailIngredientData();
-    // console.log('\n----- seedCocktailIngredient SEEDED -----\n');
+    await seedCocktailIngredientData();
+    console.log('\n----- seedCocktailIngredient SEEDED -----\n');
     
 
     process.exit(0);

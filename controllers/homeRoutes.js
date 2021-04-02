@@ -5,16 +5,16 @@ router.get('/', async (req, res) => {
     try {
         const cocktailData = await Cocktail.findAll({
             include: [
-                { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
-                { model: BrandName, through: CategoryBrand, as: 'categoryType_Brand' },
-                { model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes' },
-                { model: User, attributes: ['name'],},
-                { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
+             //   { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
+             //   { model: BrandName, through: CategoryBrand, as: 'categoryType_Brand' },
+             //   { model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes' },
+                { model: User, attributes: ['user_name'],},
+              //  { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
             ],
         });
 
         const cocktails = cocktailData.map((cocktail) => cocktail.get({ plain: true }));
-
+        console.log(cocktails);
         res.render('homepage', {
             cocktails,
             logged_in: req.session.logged_in
@@ -28,11 +28,11 @@ router.get('/cocktail/:id', async (req, res) => {
     try {
         const cocktailData = await Post.findByPk(req.params.id, {
             include: [
-                { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
-                { model: BrandName, through: CategoryBrand, as: 'categoryType_Brand' },
-                { model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes' },
-                { model: User, attributes: ['name'],},
-                { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
+                //{ model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
+               // { model: BrandName, through: CategoryBrand, as: 'categoryType_Brand' },
+               // { model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes' },
+                { model: User, attributes: ['user_name'],},
+               // { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
             ],
         });
 

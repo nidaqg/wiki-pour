@@ -14,7 +14,7 @@ const getBrand = async () => {
             const li = document.createElement('li');
             li.classList.add('dropdown-item');
             li.innerHTML = brand.brand_name;
-            li.setAttribute('id',brand.id);
+            li.setAttribute('id', brand.id);
             brandEL.appendChild(li);
         });
     } else {
@@ -38,7 +38,7 @@ const getCategoryType = async () => {
             const li = document.createElement('li');
             li.classList.add('dropdown-item');
             li.innerHTML = ct.categoryType_name;
-            li.setAttribute('id',ct.id);
+            li.setAttribute('id', ct.id);
             categoryTypeEL.appendChild(li);
         });
     } else {
@@ -62,7 +62,7 @@ const getIngredient = async () => {
             const li = document.createElement('li');
             li.classList.add('dropdown-item');
             li.innerHTML = ing.ingredient_name;
-            li.setAttribute('id',ing.id);
+            li.setAttribute('id', ing.id);
             ingredientEL.appendChild(li);
         });
     } else {
@@ -70,6 +70,42 @@ const getIngredient = async () => {
     }
 }
 
+const searchByBrand = async (event) => {
+    event.preventDefault();
+    const id = event.target.getAttribute("id")
+    //console.log("click worked"),
+    // console.log(id);
+    document.location.replace('/searchByBrand/' + id);
+}
+
+const searchByCategoryType = async (event) => {
+    event.preventDefault();
+    const id = event.target.getAttribute("id")
+    //console.log("click worked"),
+    //console.log(id);
+    document.location.replace('/searchByCategoryType/' + id);
+}
+
+const searchByIngredients = async (event) => {
+    event.preventDefault();
+    const id = event.target.getAttribute("id")
+    //console.log("click worked"),
+    //console.log(id);
+    document.location.replace('/searchByIngredient/' + id);
+}
+
 getBrand();
 getCategoryType();
 getIngredient();
+
+document
+    .querySelector('#brand-name')
+    .addEventListener('click', searchByBrand);
+
+document
+    .querySelector('#category-type')
+    .addEventListener('click', searchByCategoryType);
+
+document
+    .querySelector('#ingredients')
+    .addEventListener('click', searchByIngredients);

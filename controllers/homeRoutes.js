@@ -5,7 +5,7 @@ router.get('/', async (req, res) => {
   try {
     const cocktailData = await Cocktail.findAll({
       include: [
-        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
+        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients'},
         {
           model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes',
           include: [{
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    //res.status(200).json(cocktailData);
+    // res.status(200).json(cocktailData);
     const cocktails = cocktailData.map((cocktail) => cocktail.get({ plain: true }));
     res.render('homepage', {
       cocktails,
@@ -112,6 +112,96 @@ router.get('/edit/:id', async (req, res) => {
     }
   }
 })
+
+router.get('/searchByBrand/:id', async (req, res) => {
+  try {
+    const cocktailData = await Cocktail.findAll({
+      where: {
+        '$cocktail_categorytypes.categoryType_Brand.id$': req.params.id
+    },
+      include: [
+        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients'},
+        {
+          model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes',
+          include: [{
+            model: BrandName, through: CategoryBrand, as: 'categoryType_Brand'
+          }]
+        },
+        { model: User, attributes: ['user_name'], },
+        { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
+      ],
+    });
+
+    // res.status(200).json(cocktailData);
+    const cocktails = cocktailData.map((cocktail) => cocktail.get({ plain: true }));
+    res.render('homepage', {
+      cocktails,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/searchByCategoryType/:id', async (req, res) => {
+  try {
+    const cocktailData = await Cocktail.findAll({
+      where: {
+        '$cocktail_categorytypes.id$': req.params.id
+    },
+      include: [
+        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients'},
+        {
+          model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes',
+          include: [{
+            model: BrandName, through: CategoryBrand, as: 'categoryType_Brand'
+          }]
+        },
+        { model: User, attributes: ['user_name'], },
+        { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
+      ],
+    });
+
+    // res.status(200).json(cocktailData);
+    const cocktails = cocktailData.map((cocktail) => cocktail.get({ plain: true }));
+    res.render('homepage', {
+      cocktails,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/searchByIngredient/:id', async (req, res) => {
+  try {
+    const cocktailData = await Cocktail.findAll({
+      where: {
+        '$cocktail_ingredients.id$': req.params.id
+    },
+      include: [
+        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients'},
+        {
+          model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes',
+          include: [{
+            model: BrandName, through: CategoryBrand, as: 'categoryType_Brand'
+          }]
+        },
+        { model: User, attributes: ['user_name'], },
+        { model: Rating, through: CocktailRating, as: 'cocktail_ratings' },
+      ],
+    });
+
+    // res.status(200).json(cocktailData);
+    const cocktails = cocktailData.map((cocktail) => cocktail.get({ plain: true }));
+    res.render('homepage', {
+      cocktails,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 module.exports = router;

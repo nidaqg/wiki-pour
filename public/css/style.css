@@ -8,3 +8,51 @@
     color: black;
     border-color: white;
 }
+
+.header-background-gin {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url(../images/juniper.png);
+    padding-top: 25px;
+    padding-bottom: 20px;
+    background-size: 100%;
+}
+
+.header-background-vodka {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url(../images/vodka.png);
+    padding-top: 25px;
+    padding-bottom: 20px;
+    background-size: 100%;
+}
+
+.header-background-rum {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url(../images/rum.png);
+    padding-top: 25px;
+    padding-bottom: 20px;
+    background-size: 100%;
+}
+
+.header-background-cachaca {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+        ),
+        url(../images/cachaca.png);
+    padding-top: 25px;
+    padding-bottom: 20px;
+    background-size: 100%;
+}

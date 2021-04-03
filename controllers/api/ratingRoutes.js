@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
     /* expected req.body:
         {
         cocktail_id: 1,

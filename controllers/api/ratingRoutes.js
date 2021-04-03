@@ -1,10 +1,37 @@
 const router = require('express').Router();
-const { Rating } = require('../../models');
+const { CocktailRating, Rating, Cocktail, User  } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-router.post('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const newRating = await Rating.create({
+        const ratingData = await Rating.findAll({
+            include: [
+                { model: Cocktail, through: CocktailRating, as: 'ratings_cocktails' },
+                { model: User, through: CocktailRating, as: 'ratings_user' },
+            ]
+        });
+
+        if (!ratingData) {
+            res.status(404).json({ message: 'No ratings!' });
+            return;
+        }
+
+        res.status(200).json(ratingData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+router.post('/', withAuth, async (req, res) => {
+    /* expected req.body:
+        {
+        cocktail_id: 1,
+        rating_id: 5
+        }
+    */
+    try {
+        const newRating = await CocktailRating.create({
             ...req.body,
             user_id: req.session.user_id,
         });

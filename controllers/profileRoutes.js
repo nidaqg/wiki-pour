@@ -32,12 +32,12 @@ router.get('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/newrecipe', (req, res) => {
+router.get('/newrecipe', withAuth, (req, res) => {
     if (!req.session.logged_in) {
         res.redirect('/login');
         return;
     }
-    res.render('new-recipe');
+     res.render('new-recipe', {logged_in: req.session.logged_in});
 });
 
 router.get('/editrecipe/:id', withAuth, async (req, res) => {

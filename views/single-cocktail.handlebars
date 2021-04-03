@@ -5,16 +5,27 @@
   <section class="card m-2">
       <section class="card-header text-center">
       <h5 class="card-title">{{cocktail.cocktail_name}}</h5>
-      <h6 class= "card-subtitle mb-2 text-muted">Created by: {{cocktail.user.username}}</h6>
+      <h6 class= "card-subtitle mb-2 text-muted">Created by: {{cocktail.user.user_name}}</h6>
       </section>
       <section class="card-body">
+
+        <h5>Ingredients:</h5>
+        {{#each cocktail.cocktail_ingredients as |ingredient|}}
+        <p>{{ingredient_name}}</p>
+        {{/each}}
+        <h5>Type of Spirit and Brand:</h5>
+        {{#each cocktail.cocktail_categorytypes as |categoryType|}}
+        <p>{{categoryType_name}}</p>
+        {{#each cocktail.categoryType_Brand as |brand|}}
+        <p>{{brand_name}}</p>
+        {{/each}}
+        {{/each}}
+        <h5>User Rating:</h5>
+        {{#each cocktail.cocktail_ratings as |ratings|}}
+        <p>{{rating}}</p>
+        {{/each}}
+        <h5>Recipe</h5>
         <p>{{cocktail.instructions}}</p>
-      <!--<p class="card-text">User Rating: {{cocktail.rating.rating}}</p>
-        <p class = "card-text">Category: {{cocktail.category.category_name}}</p>
-        <p class="card-text">ingredients:</p>
-        {{#each cocktail.ingredient as |ingredient|}}
-        <il>{{ingredient}}</il>
-        {{/each}}-->
       </section>
     </section>
   </section>

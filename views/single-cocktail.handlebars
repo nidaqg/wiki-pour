@@ -27,6 +27,7 @@
           {{/each}}
           <h5>Recipe</h5>
           <p>{{cocktail.instructions}}</p>
+          {{#if logged_in}}
           <h1>Star rating </h1>
           <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
               type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating"
@@ -34,6 +35,7 @@
               for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
           </div>
           <button type="button" class="btn btn-primary">Submit Rating</button>
+          {{/if}}
 
         </section>
       </section>

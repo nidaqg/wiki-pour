@@ -4,13 +4,23 @@
 <form class="m-3">
     <h5 class="text-center card-title">New Recipe</h5>
     <section class="mb-3">
-    <label for="recipe" class="form-label">Name your Cocktail</label>
+    <label for="recipe" class="form-label fw-bold">Name your Cocktail</label>
     <input class="form-control" id="recipe-name" name="recipe" type="text" />
     </section>
 
-    <section class="mb-3">
-    <label for="content" class="form-label">Your Recipe Here</label>
-    <input class="form-control" id="recipe-content" name="content" type="text"/>
+    <section>
+    <label class="form-label mt-3 fw-bold">Choose your Ingredients</label>
+    <section id="ingboxes"></section>
+    </section>
+
+    <section>
+    <label class="form-label mt-3 fw-bold">Choose your Category Type</label>
+    <section id="typeboxes"></section>
+    </section>
+
+    <section class="mt-3 mb-3">
+    <label for="content" class="form-label fw-bold">Your Recipe Here</label>
+    <textarea class="form-control" id="recipe-content" name="content" type="text" style="height: 100px;"></textarea>
     </section>
 
     <button id= "createCard" class="btn btn-dark localBtn mb-3">Publish</button>

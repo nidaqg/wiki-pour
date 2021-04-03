@@ -69,6 +69,42 @@
     background-size: 100%;
 }
 
+.header-background-tequila {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+            ),
+        url(../images/tequila-agave.png);
+    padding-top: 25px;
+    padding-bottom: 20px;
+    background-size: 100%;
+}
+
+.header-background-whiskey {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+            ),
+        url(../images/whisky-barrel.png);
+    padding-top: 25px;
+    padding-bottom: 20px;
+    background-size: 100%;
+}
+
+.header-background-brandy {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+            ),
+        url(../images/brandy-glass.png);
+    padding-top: 25px;
+    padding-bottom: 20px;
+    background-size: 100%;
+}
+
 .rating {
     display: flex;
     flex-direction: row-reverse;

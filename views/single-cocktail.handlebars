@@ -1,35 +1,45 @@
 <section class="row justify-content-center text-center">
-<section class="col-sm-8 justify-content-center text-center mb-4">
+  <section class="col-sm-8 justify-content-center text-center mb-4">
 
-<section class="row">
-  <section class="card m-2">
-      <section class="text-center">
-      <img src="/images/wiki-pour-logo.png" alt="logo" class="rounded-circle img-fluid w-25 mt-2 mb-2"> 
-      <h5 class="card-title">{{cocktail.cocktail_name}}</h5>
-      <h6 class= "card-subtitle mb-2 text-muted">Created by: {{cocktail.user.user_name}}</h6>
-      </section>
-      <section class="card-body">
+    <section class="row">
+      <section class="card m-2">
+        <section class="text-center">
+          <img src="/images/wiki-pour-logo.png" alt="logo" class="rounded-circle img-fluid w-25 mt-2 mb-2">
+          <h5 class="card-title">{{cocktail.cocktail_name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">Created by: {{cocktail.user.user_name}}</h6>
+        </section>
+        <section class="card-body">
 
-        <h5>Ingredients:</h5>
-        {{#each cocktail.cocktail_ingredients as |ingredient|}}
-        <p>{{ingredient_name}}</p>
-        {{/each}}
-        <h5>Type of Spirit and Brand:</h5>
-        {{#each cocktail.cocktail_categorytypes as |categoryType|}}
-        <p>{{categoryType_name}}</p>
-        {{#each cocktail.categoryType_Brand as |brand|}}
-        <p>{{brand_name}}</p>
-        {{/each}}
-        {{/each}}
-        <h5>User Rating:</h5>
-        {{#each cocktail.cocktail_ratings as |ratings|}}
-        <p>{{rating}}</p>
-        {{/each}}
-        <h5>Recipe</h5>
-        <p>{{cocktail.instructions}}</p>
+          <h5>Ingredients:</h5>
+          {{#each cocktail.cocktail_ingredients as |ingredient|}}
+          <p>{{ingredient_name}}</p>
+          {{/each}}
+          <h5>Type of Spirit and Brand:</h5>
+          {{#each cocktail.cocktail_categorytypes as |categoryType|}}
+          <p>{{categoryType_name}}</p>
+          {{#each cocktail.categoryType_Brand as |brand|}}
+          <p>{{brand_name}}</p>
+          {{/each}}
+          {{/each}}
+          <h5>User Rating:</h5>
+          {{#each cocktail.cocktail_ratings as |ratings|}}
+          <p>{{rating}}</p>
+          {{/each}}
+          <h5>Recipe</h5>
+          <p>{{cocktail.instructions}}</p>
+          <h1>Star rating </h1>
+          <div class="rating"> <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label> <input
+              type="radio" name="rating" value="4" id="4"><label for="4">☆</label> <input type="radio" name="rating"
+              value="3" id="3"><label for="3">☆</label> <input type="radio" name="rating" value="2" id="2"><label
+              for="2">☆</label> <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+          </div>
+          <button type="button" class="btn btn-primary">Submit Rating</button>
+
+        </section>
       </section>
     </section>
-  </section>
 
+  </section>
 </section>
-</section>
+
+<script src="/js/single-cocktail.js"></script>

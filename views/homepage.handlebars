@@ -3,41 +3,47 @@
 
     <h5 class="text-center mt-2">Search by Brand Name</h5>
     <section class="dropdown">
-    <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    See Options
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" href="#">Buffalo Trace</a></li>
-    <li><a class="dropdown-item" href="#">Campari</a></li>
-    <li><a class="dropdown-item" href="#">Hendricks</a></li>
-    <li><a class="dropdown-item" href="#">Antica Sweet Vermouth</a></li>
-    </ul>
-   </section>
+      <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        See Options
+      </button>
+      <ul class="dropdown-menu" id="brand-name" aria-labelledby="dropdownMenuButton">
+        <!-- dynamic list below -->
+        {{!-- <li><a class="dropdown-item" href="#">Buffalo Trace</a></li>
+        <li><a class="dropdown-item" href="#">Campari</a></li>
+        <li><a class="dropdown-item" href="#">Hendricks</a></li>
+        <li><a class="dropdown-item" href="#">Antica Sweet Vermouth</a></li> --}}
+      </ul>
+    </section>
 
     <h5 class="text-center mt-2">Search by Category Type</h5>
     <section class="dropdown">
-    <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    See Options
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" href="#">Whiskey</a></li>
-    <li><a class="dropdown-item" href="#">Aperitif</a></li>
-    <li><a class="dropdown-item" href="#">Gin</a></li>
-    <li><a class="dropdown-item" href="#">Vermouth</a></li>
-    </ul>
-   </section>
- 
+      <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        See Options
+      </button>
+      <ul class="dropdown-menu" id="category-type" aria-labelledby="dropdownMenuButton">
+        <!-- dynamic list below -->
+        {{!-- <li><a class="dropdown-item" href="#">Whiskey</a></li>
+        <li><a class="dropdown-item" href="#">Aperitif</a></li>
+        <li><a class="dropdown-item" href="#">Gin</a></li>
+        <li><a class="dropdown-item" href="#">Vermouth</a></li> --}}
+      </ul>
+    </section>
+
     <h5 class="text-center mt-2">Search by Ingredient</h5>
     <section class="dropdown">
-    <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    See Options
-    </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <li><a class="dropdown-item" href="#">Simple Syrup</a></li>
-    <li><a class="dropdown-item" href="#">Angustora Bitters</a></li>
-    <li><a class="dropdown-item" href="#">Orange Peel</a></li>
-    </ul>
-   </section>
+      <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        See Options
+      </button>
+      <ul class="dropdown-menu" id="ingredients" aria-labelledby="dropdownMenuButton">
+        <!-- dynamic list below -->
+        {{!-- <li><a class="dropdown-item" href="#">Simple Syrup</a></li>
+        <li><a class="dropdown-item" href="#">Angustora Bitters</a></li>
+        <li><a class="dropdown-item" href="#">Orange Peel</a></li> --}}
+      </ul>
+    </section>
 
   </section>
 
@@ -48,7 +54,7 @@
 
     <section class="card mt-3 mb-3">
       <section class="text-center">
-        <img src="/images/wiki-pour-logo.png" alt="logo" class="rounded-circle img-fluid w-25 mt-2 mb-2"> 
+        <img src="/images/wiki-pour-logo.png" alt="logo" class="rounded-circle img-fluid w-25 mt-2 mb-2">
         <h4>{{cocktail.cocktail_name}}</h4>
         <h5 class="text-muted">Created by: {{cocktail.user.user_name}}</h5>
       </section>
@@ -69,7 +75,7 @@
         {{#each cocktail_ratings as |ratings|}}
         <p>{{rating}}</p>
         {{/each}}
-      
+
         <a href="/cocktail/{{cocktail.id}}" class="btn btn-dark localBtn">Get the Recipe</a>
       </section>
     </section>

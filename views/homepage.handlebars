@@ -1,20 +1,44 @@
 <section class="row">
   <section class="col-md-3 ms-4 mt-3 mb-3 text-center">
-    <h5 class="text-center mt-2">Search the wiki</h5>
-    <input class="form-control me-2 mb-3" type="search" id="userInput" placeholder="Search" aria-label="Search">
-    <button class="btn btn-dark localBtn mb-3" id="searchButton" type="submit">Search</button>
+
+    <h5 class="text-center mt-2">Search by Brand Name</h5>
     <section class="dropdown">
-      <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-        aria-expanded="false">
-        Search by Category
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <li><a class="dropdown-item" href="#">Spirits</a></li>
-        <li><a class="dropdown-item" href="#">Beer</a></li>
-        <li><a class="dropdown-item" href="#">Wine</a></li>
-        <li><a class="dropdown-item" href="#">Non-Alcoholic Drinks</a></li>
-      </ul>
-    </section>
+    <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    See Options
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item" href="#">Buffalo Trace</a></li>
+    <li><a class="dropdown-item" href="#">Campari</a></li>
+    <li><a class="dropdown-item" href="#">Hendricks</a></li>
+    <li><a class="dropdown-item" href="#">Antica Sweet Vermouth</a></li>
+    </ul>
+   </section>
+
+    <h5 class="text-center mt-2">Search by Category Type</h5>
+    <section class="dropdown">
+    <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    See Options
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item" href="#">Whiskey</a></li>
+    <li><a class="dropdown-item" href="#">Aperitif</a></li>
+    <li><a class="dropdown-item" href="#">Gin</a></li>
+    <li><a class="dropdown-item" href="#">Vermouth</a></li>
+    </ul>
+   </section>
+ 
+    <h5 class="text-center mt-2">Search by Ingredient</h5>
+    <section class="dropdown">
+    <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    See Options
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <li><a class="dropdown-item" href="#">Simple Syrup</a></li>
+    <li><a class="dropdown-item" href="#">Angustora Bitters</a></li>
+    <li><a class="dropdown-item" href="#">Orange Peel</a></li>
+    </ul>
+   </section>
+
   </section>
 
   <section class="col-md-8 m-3">
@@ -25,28 +49,31 @@
     <section class="card mt-3 mb-3">
       <section class="card-header text-center">
         <h4>{{cocktail.cocktail_name}}</h4>
-        <h5>Created by: {{cocktail.user.user_name}}</h5>
+        <h5 class="text-muted">Created by: {{cocktail.user.user_name}}</h5>
+      </section>
+
+      <section class="card-body text-center">
+        <h5>Ingredients:</h5>
         {{#each cocktail_ingredients as |ingredient|}}
-        <p>Ingredient: {{ingredient_name}}</p>
+        <p>{{ingredient_name}}</p>
         {{/each}}
+        <h5>Type of Spirit and Brand:</h5>
         {{#each cocktail_categorytypes as |categoryType|}}
-        <p>Type Of Spirit: {{categoryType_name}}</p>
+        <p>Spirit: {{categoryType_name}}</p>
         {{#each categoryType_Brand as |brand|}}
         <p>Brand: {{brand_name}}</p>
         {{/each}}
         {{/each}}
+        <h5>User Rating:</h5>
         {{#each cocktail_ratings as |ratings|}}
-        <p>Rating: {{rating}}</p>
+        <p>{{rating}}</p>
         {{/each}}
-      </section>
-      <section class="card-body text-center">
-        <p></p>
+      
         <a href="/cocktail/{{cocktail.id}}" class="btn btn-dark localBtn">Get the Recipe</a>
       </section>
     </section>
 
     {{/each}}
-
   </section>
 
 </section>

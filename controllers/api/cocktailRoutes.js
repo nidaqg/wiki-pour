@@ -77,7 +77,7 @@ router.put('/edit/:id', withAuth, async (req, res) => {
 
 router.delete('/edit/:id', withAuth, async (req, res) => {
     try {
-        const cocktailData = await Post.destroy({
+        const cocktailData = await Cocktail.destroy({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,

@@ -17,7 +17,7 @@ const ingredientList = async () => {
       var inputField = document.createElement("input");
 
       inputField.setAttribute("type", "checkbox");
-      //inputField.setAttribute("id", "checkboxIng");
+      inputField.setAttribute("id", localList[i].id);
       inputField.setAttribute("value", localList[i].id);
       inputField.classList.add("form-check-input", "checkboxIng");
 
@@ -45,7 +45,7 @@ const typeList = async () => {
       var checkForm = document.createElement("div");
       var inputField = document.createElement("input");
       inputField.setAttribute("type", "checkbox");
-      //inputField.setAttribute("id", "checkboxType");
+      inputField.setAttribute("id", localList[i].id);
       inputField.setAttribute("value", localList[i].id);
       inputField.classList.add("form-check-input", "checkboxType");
 
@@ -70,35 +70,23 @@ newPost.addEventListener("click", async function (event) {
   let checkedIng = document.querySelectorAll(".checkboxIng");
   let checkedType = document.querySelectorAll(".checkboxType");
 
-  function chosenType() {
-    let categoryTypeIds = [];
+  let ingredientIds = []
+  checkedIng.forEach(checkedIng => {
+    if(checkedIng.checked) {
+    ingredientIds.push(checkedIng.value)
+  }
+  })
 
-    for (i = 0; i > checkedType.length; i++) {
-      if (checkedType[i].checked) {
-        categoryTypeIds.push(checkedType[i].value);
-      }
-      
-    }
-    return categoryTypeIds;
-  };
 
-  function chosenIds() {
-    let ingredientIds = [];
+let categoryTypeIds = []
+  checkedType.forEach(checkedType => {
+    if(checkedType.checked) {
+    categoryTypeIds.push(checkedType.value)
+  }
+  })
 
-    for (i = 0; i > checkedIng.length; i++) {
-      if (checkedIng[i].checked) {
-        ingredientIds.push(checkedIng[i].value);
-      }
-    }
-    return ingredientIds;
-
-  };
-
-  let ingredientIds = chosenIds()
-  let categoryTypeIds = chosenType()
-
-  console.log(`array ${ingredientIds}`)
-  console.log(`array2 ${categoryTypeIds}`)
+console.log(ingredientIds);
+console.log(categoryTypeIds);
 
   const response = await fetch(`/api/cocktail`, {
     method: "POST",

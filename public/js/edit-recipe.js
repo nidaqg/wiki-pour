@@ -27,7 +27,7 @@ const response = await fetch(`/api/cocktail/edit/${id}`, {
 
 deleteRecipe.addEventListener('click', async function (event){
   event.preventDefault();
-
+  
   const id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1
   ];

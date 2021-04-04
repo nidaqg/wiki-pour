@@ -54,7 +54,7 @@ router.put('/edit/:id', withAuth, async (req, res) => {
         const cocktailData = await Cocktail.update(
             {
                 cocktail_name: req.body.cocktail_name,
-                content: req.body.content,
+                instructions: req.body.instructions,
             },
             {
                 where: {

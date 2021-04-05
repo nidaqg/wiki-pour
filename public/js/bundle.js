@@ -18,10 +18,10 @@ submitBtn.addEventListener("click", async function (event) {
   console.log(rating_id);
   
   // get id of current cocktail
-  const cocktailId = window.location.toString().split("/")[
+  const cocktail_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  console.log(cocktailId);
+  console.log(cocktail_id);
   
   // api call for ratings
   const cocktail = await fetch(`/api/rating/rate`, {
@@ -39,7 +39,7 @@ submitBtn.addEventListener("click", async function (event) {
 
   // filters through ratings for those associated with current cocktails
   const ratings = cr.filter((rating) => { 
-    return rating.cocktail_id == cocktailId;
+    return rating.cocktail_id == cocktail_id;
   });
   
   console.log(ratings);

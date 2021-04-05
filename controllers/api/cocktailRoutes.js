@@ -75,6 +75,31 @@ router.put('/edit/:id', withAuth, async (req, res) => {
     }
 });
 
+router.put('/edit/rating/:id', withAuth, async (req, res) => {
+    try {
+        const cocktailData = await Cocktail.update(
+            {
+                rating_average: req.body.rating_average,
+            },
+            {
+                where: {
+                    id: req.params.id,
+                    user_id: req.session.user_id,
+                },
+            }
+        );
+
+        if (!cocktailData) {
+            res.status(404).json({ message: 'No post found with this id!' });
+            return;
+        }
+
+        res.status(200).json(cocktailData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 router.delete('/edit/:id', withAuth, async (req, res) => {
     try {
         const cocktailData = await Cocktail.destroy({

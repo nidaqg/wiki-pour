@@ -53,9 +53,12 @@ submitBtn.addEventListener("click", async function (event) {
   console.log(justRatings);
 
 
-  const averageRating = average(justRatings);
+  // averages the ratings to nearest tenth
+  const averageRating = average(justRatings).toFixed(1);
 
   console.log(averageRating);
+
+  postAverage(averageRating, cocktail_id)
 
 
 
@@ -66,10 +69,31 @@ submitBtn.addEventListener("click", async function (event) {
   });
 
   if (response.ok) {
-    document.location.replace(`/cocktail/${cocktail_id}`);
+    // document.location.replace(`/cocktail/${cocktail_id}`);
   } else {
     alert("Failed to update");
   }
+
 });
+
+function postAverage(rating_average, id) {
+  console.log(rating_average)
+  console.log(id);
+
+
+  // const response = await fetch(`/api/cocktail/edit/rating_average/${id}`, {
+  //   method: 'PUT',
+  //   body: JSON.stringify({rating_average}),
+  //   headers: { 'Content-Type': 'application/json' },
+  // });
+
+  // if (response.ok) {
+  //   document.location.replace('/profile');
+  // } else {
+  //   alert('Failed to update');
+  // }
+
+
+}
 
 },{"average":1}]},{},[2]);

@@ -15,6 +15,10 @@ Cocktail.init(
       type: DataTypes.STRING,
       allowNull: false
     },
+    rating_average: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
     // brandName_id: {
     //   type: DataTypes.INTEGER,
     //   references: {

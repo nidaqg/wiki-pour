@@ -14,8 +14,16 @@ const categoryBrandData = [
     brandName_id: 3
   },
   {
-    categoryType_id: 3,
+    categoryType_id: 4,
     brandName_id: 4
+  },
+  {
+    categoryType_id: 5,
+    brandName_id: 5
+  },
+  {
+    categoryType_id: 6,
+    brandName_id: 6
   },
 
 ];

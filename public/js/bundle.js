@@ -28,18 +28,20 @@ submitBtn.addEventListener("click", async function (event) {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
+  
+  const cocktailRatings = cocktail.json()
+  console.log(cocktailRatings);
+
+  let cr = await cocktailRatings
+  console.log(cr)
 
   let rating_average;
 
-  if (cocktail.length > 0) {
+  if (cr.length > 0) {
 
-    const cocktailRatings = cocktail.json()
-    console.log(cocktailRatings);
+    // console.log(cocktailRatings);
+    console.log("if statment ran")
   
-  
-  
-    let cr = await cocktailRatings
-    console.log(cr)
   
     // filters through ratings for those associated with current cocktails
     const ratings = cr.filter((rating) => { 

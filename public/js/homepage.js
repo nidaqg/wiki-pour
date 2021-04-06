@@ -94,6 +94,32 @@ const searchByIngredients = async (event) => {
     document.location.replace('/searchByIngredient/' + id);
 }
 
+const getRandom = async (event) => {
+    event.preventDefault();
+    const cocktailData = await fetch(`/api/cocktail`, {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (cocktailData) {
+        const cocktails = await cocktailData.json()
+        console.log(cocktails);
+
+        let cocktailIds = [];
+        cocktails.forEach(cocktail => {
+            cocktailIds.push(cocktail.id)
+
+        });
+    
+
+    let randomId = cocktailIds[Math.floor(Math.random()*cocktailIds.length)];
+
+     document.location.replace(`/cocktail/${randomId}`);
+
+    }
+
+    }
+
+
 getBrand();
 getCategoryType();
 getIngredient();
@@ -109,3 +135,6 @@ document
 document
     .querySelector('#ingredients')
     .addEventListener('click', searchByIngredients);
+
+
+document.querySelector('#randomizeIt').addEventListener('click', getRandom);

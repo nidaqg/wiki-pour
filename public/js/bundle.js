@@ -29,33 +29,42 @@ submitBtn.addEventListener("click", async function (event) {
     headers: { "Content-Type": "application/json" },
   });
 
+  let rating_average;
 
-  const cocktailRatings = cocktail.json()
-  console.log(cocktailRatings);
+  if (cocktail.length > 0) {
 
+    const cocktailRatings = cocktail.json()
+    console.log(cocktailRatings);
+  
+  
+  
+    let cr = await cocktailRatings
+    console.log(cr)
+  
+    // filters through ratings for those associated with current cocktails
+    const ratings = cr.filter((rating) => { 
+      return rating.cocktail_id == cocktail_id;
+    });
+  
+  
+    // returns just the rating_id
+    const justRatings = ratings.map((rating) => { 
+      return rating.rating_id;
+    });
+  
+  
+    console.log(justRatings, "---justratings---");
+  
+  
+    // averages the ratings to nearest tenth
+    rating_average = average(justRatings).toFixed(1);
+  
+    console.log(rating_average, "----ratingavg-----");
+    
+  } else {
+    rating_average = rating_id
+  }
 
-  let cr = await cocktailRatings
-  console.log(cr)
-
-  // filters through ratings for those associated with current cocktails
-  const ratings = cr.filter((rating) => { 
-    return rating.cocktail_id == cocktail_id;
-  });
-
-
-  // returns just the rating_id
-  const justRatings = ratings.map((rating) => { 
-    return rating.rating_id;
-  });
-
-
-  console.log(justRatings, "---justratings---");
-
-
-  // averages the ratings to nearest tenth
-  const rating_average = average(justRatings).toFixed(1);
-
-  console.log(rating_average, "----ratingavg-----");
 
   
   

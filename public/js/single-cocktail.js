@@ -27,28 +27,25 @@ submitBtn.addEventListener("click", async function (event) {
   let cr = await cocktailRatings
   console.log(cr)
 
+  // filters through ratings for those associated with current cocktails
+  const ratings = cr.filter((rating) => { 
+    return rating.cocktail_id == cocktail_id;
+  });
+
+
+  // returns just the rating_id
+  const justRatings = ratings.map((rating) => { 
+    return rating.rating_id;
+  });
+
+  console.log(justRatings, "---justratings---");
+
   let rating_average;
 
-  if (cr.length > 0) {
+  if (justRatings.length > 0) {
 
     // console.log(cocktailRatings);
     console.log("if statment ran");
-  
-  
-    // filters through ratings for those associated with current cocktails
-    const ratings = cr.filter((rating) => { 
-      return rating.cocktail_id == cocktail_id;
-    });
-  
-  
-    // returns just the rating_id
-    const justRatings = ratings.map((rating) => { 
-      return rating.rating_id;
-    });
-  
-  
-    console.log(justRatings, "---justratings---");
-  
   
     // averages the ratings to nearest tenth
     rating_average = average(justRatings).toFixed(1);
@@ -78,7 +75,7 @@ submitBtn.addEventListener("click", async function (event) {
     });
     if (responsePut.ok) {
       console.log("ok")
-      // document.location.replace(`/cocktail/${cocktail_id}`);
+      document.location.replace(`/cocktail/${cocktail_id}`);
     } else {
       alert('Failed to update');
     }

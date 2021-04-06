@@ -1,19 +1,19 @@
 const average = require('average');
 let submitBtn = document.querySelector(".btn");
+// const session = require('express-session');
 
 // event listener for when submit button is clicked
 submitBtn.addEventListener("click", async function (event) {
   event.preventDefault();
   // gets value of user input star rating
-  const rating_id = document.querySelector('input[name="rating"]:checked')
-    .value;
-  console.log(rating_id);
+  const rating_id = document.querySelector('input[name="rating"]:checked').value;
+  console.log(rating_id, "-----rating----");
   
   // get id of current cocktail
   const cocktail_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  console.log(cocktail_id);
+  console.log(cocktail_id, "----cid----");
   
   // api call for ratings
   const cocktail = await fetch(`/api/rating/rate`, {
@@ -33,8 +33,7 @@ submitBtn.addEventListener("click", async function (event) {
   const ratings = cr.filter((rating) => { 
     return rating.cocktail_id == cocktail_id;
   });
-  
-  console.log(ratings);
+
 
   // returns just the rating_id
   const justRatings = ratings.map((rating) => { 
@@ -42,48 +41,37 @@ submitBtn.addEventListener("click", async function (event) {
   });
 
 
-  console.log(justRatings);
+  console.log(justRatings, "---justratings---");
 
 
   // averages the ratings to nearest tenth
-  const averageRating = average(justRatings).toFixed(1);
+  const rating_average = average(justRatings).toFixed(1);
 
-  console.log(averageRating);
+  console.log(rating_average, "----ratingavg-----");
 
-  postAverage(averageRating, cocktail_id)
-
-
-
-  const response = await fetch('/api/rating', {
+  
+  
+  
+  let responsePost = await fetch('/api/rating', {
     method: "POST",
     body: JSON.stringify({ cocktail_id , rating_id }),
     headers: { "Content-Type": "application/json" },
   });
-
-  if (response.ok) {
-    // document.location.replace(`/cocktail/${cocktail_id}`);
-  } else {
-    alert("Failed to update");
-  }
+  
+  if (responsePost.ok) {
+    console.log(rating_average, "--------")
+    let responsePut = await fetch(`/api/cocktail/edit/rating/${cocktail_id}`, {
+      method: 'PUT',
+      body: JSON.stringify({rating_average:rating_average}),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    if (responsePut.ok) {
+      console.log("ok")
+      // document.location.replace(`/cocktail/${cocktail_id}`);
+    } else {
+      alert('Failed to update');
+    }
+  }; 
+  
 
 });
-
-function postAverage(rating_average, id) {
-  console.log(rating_average)
-  console.log(id);
-
-
-  // const response = await fetch(`/api/cocktail/edit/rating_average/${id}`, {
-  //   method: 'PUT',
-  //   body: JSON.stringify({rating_average}),
-  //   headers: { 'Content-Type': 'application/json' },
-  // });
-
-  // if (response.ok) {
-  //   document.location.replace('/profile');
-  // } else {
-  //   alert('Failed to update');
-  // }
-
-
-}

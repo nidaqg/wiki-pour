@@ -120,4 +120,37 @@ router.delete('/edit/:id', withAuth, async (req, res) => {
     }
 });
 
+
+router.get('/', async (req, res) => {
+
+    try {
+        const cocktailData = await Cocktail.findAll({});
+
+        if (!cocktailData) {
+            res.status(404).json({ message: 'No cocktails!' });
+            return;
+        }
+
+        res.status(200).json(cocktailData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/:id', async (req, res) => {
+
+    try {
+        const cData = await Cocktail.findByPk(req.params.id, {});
+
+        if (!cData) {
+            res.status(404).json({ message: 'No cocktails with this id!' });
+            return;
+        }
+
+        res.status(200).json(cData);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;

@@ -1,50 +1,38 @@
 <section class="row">
   <section class="col-md-3 ms-4 mt-3 mb-3 text-center">
 
-    <h5 class="text-center mt-2">Search by Brand Name</h5>
+    <h5 class="text-center mt-3">Search by Brand Name</h5>
     <section class="dropdown">
       <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1"
         data-bs-toggle="dropdown" aria-expanded="false">
         See Options
       </button>
       <ul class="dropdown-menu" id="brand-name" aria-labelledby="dropdownMenuButton">
-        <!-- dynamic list below -->
-        {{!-- <li><a class="dropdown-item" href="#">Buffalo Trace</a></li>
-        <li><a class="dropdown-item" href="#">Campari</a></li>
-        <li><a class="dropdown-item" href="#">Hendricks</a></li>
-        <li><a class="dropdown-item" href="#">Antica Sweet Vermouth</a></li> --}}
       </ul>
     </section>
 
-    <h5 class="text-center mt-2">Search by Category Type</h5>
+    <h5 class="text-center mt-3">Search by Category Type</h5>
     <section class="dropdown">
       <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1"
         data-bs-toggle="dropdown" aria-expanded="false">
         See Options
       </button>
       <ul class="dropdown-menu" id="category-type" aria-labelledby="dropdownMenuButton">
-        <!-- dynamic list below -->
-        {{!-- <li><a class="dropdown-item" href="#">Whiskey</a></li>
-        <li><a class="dropdown-item" href="#">Aperitif</a></li>
-        <li><a class="dropdown-item" href="#">Gin</a></li>
-        <li><a class="dropdown-item" href="#">Vermouth</a></li> --}}
       </ul>
     </section>
 
-    <h5 class="text-center mt-2">Search by Ingredient</h5>
+    <h5 class="text-center mt-3">Search by Ingredient</h5>
     <section class="dropdown">
       <button class="btn btn-dark localBtn mt-2 dropdown-toggle" type="button" id="dropdownMenuButton1"
         data-bs-toggle="dropdown" aria-expanded="false">
         See Options
       </button>
       <ul class="dropdown-menu" id="ingredients" aria-labelledby="dropdownMenuButton">
-        <!-- dynamic list below -->
-        {{!-- <li><a class="dropdown-item" href="#">Simple Syrup</a></li>
-        <li><a class="dropdown-item" href="#">Angustora Bitters</a></li>
-        <li><a class="dropdown-item" href="#">Orange Peel</a></li> --}}
       </ul>
     </section>
 
+    <h5 class="text-center mt-3">Get Random Cocktail</h5>
+    <button class="btn btn-dark localBtn mt-2" id="randomizeIt">Suprise Me</button>
   </section>
 
   <section class="col-md-8 m-3">
@@ -61,9 +49,10 @@
       </section>
       <section class="card-body text-center">
         <h5>User Rating:</h5>
-        {{#each cocktail_ratings as |ratings|}}
+        <!--{{#each cocktail_ratings as |ratings|}}
         <p>{{rating}}</p>
-        {{/each}}
+        {{/each}}-->
+        <p>{{cocktail.rating_average}}</p>
 
         <a href="/cocktail/{{cocktail.id}}" class="btn btn-dark localBtn">Get the Recipe</a>
       </section>

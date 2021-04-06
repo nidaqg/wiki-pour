@@ -17,6 +17,14 @@ const CategoryTypeData = [
     categoryType_name: 'Vermouth',
     category_id: 1,
   },
+  {
+    categoryType_name: 'Bourbon',
+    category_id: 1,
+  },
+  {
+    categoryType_name: 'Vodka',
+    category_id: 1,
+  },
 ];
 
 const seedCategoryType = () => CategoryType.bulkCreate(CategoryTypeData);

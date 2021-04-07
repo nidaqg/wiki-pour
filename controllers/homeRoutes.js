@@ -5,7 +5,7 @@ router.get('/', async (req, res) => {
   try {
     const cocktailData = await Cocktail.findAll({
       include: [
-        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients'},
+        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
         {
           model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes',
           include: [{
@@ -17,7 +17,6 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    // res.status(200).json(cocktailData);
     const cocktails = cocktailData.map((cocktail) => cocktail.get({ plain: true }));
     res.render('homepage', {
       cocktails,
@@ -33,10 +32,10 @@ router.get('/spirits', async (req, res) => {
   try {
     res.render('spirits', {
       logged_in: req.session.logged_in
-  
-      });
+
+    });
   } catch (err) {
-      res.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -57,7 +56,6 @@ router.get('/cocktail/:id', async (req, res) => {
     });
 
     const cocktail = cocktailData.get({ plain: true });
-    // res.status(200).json(cocktail);
     res.render('single-cocktail', {
       cocktail,
       logged_in: req.session.logged_in
@@ -91,7 +89,6 @@ router.get('/edit/:id', async (req, res) => {
   if (!req.session.logged_in) {
     res.redirect('/login');
   } else {
-    // If the user is logged in, allow them to view edit page
     try {
       const cocktailData = await Cocktail.findByPk(req.params.id, {
         include: [
@@ -118,9 +115,9 @@ router.get('/searchByBrand/:id', async (req, res) => {
     const cocktailData = await Cocktail.findAll({
       where: {
         '$cocktail_categorytypes.categoryType_Brand.id$': req.params.id
-    },
+      },
       include: [
-        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients'},
+        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
         {
           model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes',
           include: [{
@@ -132,7 +129,6 @@ router.get('/searchByBrand/:id', async (req, res) => {
       ],
     });
 
-    // res.status(200).json(cocktailData);
     const cocktails = cocktailData.map((cocktail) => cocktail.get({ plain: true }));
     res.render('homepage', {
       cocktails,
@@ -148,9 +144,9 @@ router.get('/searchByCategoryType/:id', async (req, res) => {
     const cocktailData = await Cocktail.findAll({
       where: {
         '$cocktail_categorytypes.id$': req.params.id
-    },
+      },
       include: [
-        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients'},
+        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
         {
           model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes',
           include: [{
@@ -162,7 +158,7 @@ router.get('/searchByCategoryType/:id', async (req, res) => {
       ],
     });
 
-    // res.status(200).json(cocktailData);
+
     const cocktails = cocktailData.map((cocktail) => cocktail.get({ plain: true }));
     res.render('homepage', {
       cocktails,
@@ -178,9 +174,9 @@ router.get('/searchByIngredient/:id', async (req, res) => {
     const cocktailData = await Cocktail.findAll({
       where: {
         '$cocktail_ingredients.id$': req.params.id
-    },
+      },
       include: [
-        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients'},
+        { model: Ingredient, through: CocktailIngredient, as: 'cocktail_ingredients' },
         {
           model: CategoryType, through: CocktailCategoryType, as: 'cocktail_categorytypes',
           include: [{
@@ -192,7 +188,7 @@ router.get('/searchByIngredient/:id', async (req, res) => {
       ],
     });
 
-    // res.status(200).json(cocktailData);
+
     const cocktails = cocktailData.map((cocktail) => cocktail.get({ plain: true }));
     res.render('homepage', {
       cocktails,

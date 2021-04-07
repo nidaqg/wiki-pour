@@ -37,7 +37,7 @@ router.get('/newrecipe', withAuth, (req, res) => {
         res.redirect('/login');
         return;
     }
-     res.render('new-recipe', {logged_in: req.session.logged_in});
+    res.render('new-recipe', { logged_in: req.session.logged_in });
 });
 
 router.get('/editrecipe/:id', withAuth, async (req, res) => {

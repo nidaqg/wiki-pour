@@ -99,7 +99,19 @@
             rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.4)
             ),
-        url(../images/brandy-glass.png);
+        url(../images/brandy-grapes.png);
+    padding-top: 25px;
+    padding-bottom: 20px;
+    background-size: 100%;
+}
+
+.header-background-liqueur {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.4)
+            ),
+        url(../images/liqueur.png);
     padding-top: 25px;
     padding-bottom: 20px;
     background-size: 100%;

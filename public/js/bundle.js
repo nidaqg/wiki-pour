@@ -21,7 +21,6 @@ submitBtn.addEventListener("click", async function (event) {
   const cocktail_id = window.location.toString().split("/")[
     window.location.toString().split("/").length - 1
   ];
-  console.log(cocktail_id, "----cid----");
   
   // api call for ratings
   const cocktail = await fetch(`/api/rating/rate`, {
@@ -30,7 +29,6 @@ submitBtn.addEventListener("click", async function (event) {
   });
   
   const cocktailRatings = cocktail.json()
-  console.log(cocktailRatings);
 
   let cr = await cocktailRatings
   console.log(cr)
@@ -42,7 +40,7 @@ submitBtn.addEventListener("click", async function (event) {
 
 
   // returns just the rating_id
-  const justRatings = ratings.map((rating) => { 
+  let justRatings = ratings.map((rating) => { 
     return rating.rating_id;
   });
 
@@ -52,11 +50,19 @@ submitBtn.addEventListener("click", async function (event) {
 
   if (justRatings.length > 0) {
 
-    // console.log(cocktailRatings);
     console.log("if statment ran");
+
+    //convert user rating to integer
+    let userRatingInt = parseInt(rating_id);
+    console.log(userRatingInt, "-----int----")
+
+    // concat array of ratings with user rating
+    let newRatingArr = justRatings.concat(userRatingInt);
+    console.log(newRatingArr, "----intArr---")
+
   
     // averages the ratings to nearest tenth
-    rating_average = average(justRatings).toFixed(1);
+    rating_average = average(newRatingArr).toFixed(1);
   
     console.log(rating_average, "----ratingavg-----");
     
@@ -75,14 +81,12 @@ submitBtn.addEventListener("click", async function (event) {
   });
   
   if (responsePost.ok) {
-    console.log(rating_average, "--------")
     let responsePut = await fetch(`/api/cocktail/edit/rating/${cocktail_id}`, {
       method: 'PUT',
       body: JSON.stringify({rating_average:rating_average}),
       headers: { 'Content-Type': 'application/json' },
     });
     if (responsePut.ok) {
-      console.log("ok")
       document.location.replace(`/cocktail/${cocktail_id}`);
     } else {
       alert('Failed to update');

@@ -8,15 +8,15 @@ const getBrand = async () => {
     });
     if (brandData) {
         const brands = await brandData.json() // parse JSON
-        //console.log(brands);
+        
         brands.forEach(brand => {
-            //console.log(brand)
             const li = document.createElement('li');
             li.classList.add('dropdown-item');
             li.innerHTML = brand.brand_name;
             li.setAttribute('id', brand.id);
             brandEL.appendChild(li);
         });
+
     } else {
         alert(response.statusText);
     }
@@ -32,15 +32,15 @@ const getCategoryType = async () => {
     });
     if (categoryTypeData) {
         const categoryTypes = await categoryTypeData.json() // parse JSON
-        //console.log(brands);
+        
         categoryTypes.forEach(ct => {
-            //console.log(ct)
             const li = document.createElement('li');
             li.classList.add('dropdown-item');
             li.innerHTML = ct.categoryType_name;
             li.setAttribute('id', ct.id);
             categoryTypeEL.appendChild(li);
         });
+
     } else {
         alert(response.statusText);
     }
@@ -56,15 +56,15 @@ const getIngredient = async () => {
     });
     if (ingredientData) {
         const ingredients = await ingredientData.json() // parse JSON
-        //console.log(brands);
+        
         ingredients.forEach(ing => {
-            //console.log(ct)
             const li = document.createElement('li');
             li.classList.add('dropdown-item');
             li.innerHTML = ing.ingredient_name;
             li.setAttribute('id', ing.id);
             ingredientEL.appendChild(li);
         });
+
     } else {
         alert(response.statusText);
     }
@@ -73,24 +73,18 @@ const getIngredient = async () => {
 const searchByBrand = async (event) => {
     event.preventDefault();
     const id = event.target.getAttribute("id")
-    //console.log("click worked"),
-    // console.log(id);
     document.location.replace('/searchByBrand/' + id);
 }
 
 const searchByCategoryType = async (event) => {
     event.preventDefault();
     const id = event.target.getAttribute("id")
-    //console.log("click worked"),
-    //console.log(id);
     document.location.replace('/searchByCategoryType/' + id);
 }
 
 const searchByIngredients = async (event) => {
     event.preventDefault();
     const id = event.target.getAttribute("id")
-    //console.log("click worked"),
-    //console.log(id);
     document.location.replace('/searchByIngredient/' + id);
 }
 
@@ -114,9 +108,7 @@ const getRandom = async (event) => {
     let randomId = cocktailIds[Math.floor(Math.random()*cocktailIds.length)];
 
      document.location.replace(`/cocktail/${randomId}`);
-
     }
-
     }
 
 

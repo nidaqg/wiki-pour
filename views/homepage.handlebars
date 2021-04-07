@@ -44,7 +44,7 @@
 
     {{#each cocktails as |cocktail|}}
     <section class="col">
-    <section class="card mt-3 mb-3">
+    <section class="card mt-3 mb-3 localCard">
       <section class="text-center">
         <img src="/images/wiki-pour-logo.png" alt="logo" class="rounded-circle img-fluid w-25 mt-2 mb-2">
         <h4>{{cocktail.cocktail_name}}</h4>
@@ -52,9 +52,6 @@
       </section>
       <section class="card-body text-center">
         <h5>User Rating:</h5>
-        <!--{{#each cocktail_ratings as |ratings|}}
-        <p>{{rating}}</p>
-        {{/each}}-->
         <p>{{cocktail.rating_average}}</p>
 
         <a href="/cocktail/{{cocktail.id}}" class="btn btn-dark localBtn">Get the Recipe</a>

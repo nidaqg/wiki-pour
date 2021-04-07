@@ -1,17 +1,17 @@
-const { Category } = require('../models');
+const { Category } = require("../models");
 
 const categoryData = [
   {
-    category_name: 'Spirit',
+    category_name: "Spirit",
   },
   {
-    category_name: 'Beer',
+    category_name: "Beer",
   },
   {
-    category_name: 'Wine',
+    category_name: "Wine",
   },
   {
-    category_name: 'Non-Alcoholic',
+    category_name: "Non-Alcoholic",
   },
 ];
 

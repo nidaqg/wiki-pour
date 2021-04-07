@@ -1,23 +1,23 @@
-const { BrandName } = require('../models');
+const { BrandName } = require("../models");
 
 const BrandNameData = [
   {
-    brand_name: 'Buffalo Trace',
+    brand_name: "Buffalo Trace",
   },
   {
-    brand_name: 'Campari',
+    brand_name: "Campari",
   },
   {
-    brand_name: 'Hendricks',
+    brand_name: "Hendricks",
   },
   {
-    brand_name: 'Antica Sweet Vermouth',
+    brand_name: "Antica Sweet Vermouth",
   },
   {
-    brand_name: 'Woodford',
+    brand_name: "Woodford",
   },
   {
-    brand_name: 'Titos',
+    brand_name: "Titos",
   },
 ];
 

@@ -9,10 +9,8 @@ const ingredientList = async () => {
   });
   if (getIngredients) {
     let localList = await getIngredients.json();
-    console.log(localList);
-    
-    for (i = 0; i < localList.length; i++) {
 
+    for (i = 0; i < localList.length; i++) {
       var checkForm = document.createElement("div");
       var inputField = document.createElement("input");
 
@@ -25,7 +23,7 @@ const ingredientList = async () => {
       checkForm.classList.add("form-check");
       inputLabel.classList.add("form-check-label");
       inputLabel.innerText = localList[i].ingredient_name;
-      
+
       checkForm.appendChild(inputField);
       checkForm.appendChild(inputLabel);
       ingboxes.appendChild(checkForm);
@@ -39,9 +37,7 @@ const typeList = async () => {
   });
   if (getTypes) {
     let localList = await getTypes.json();
-    console.log(localList);
     for (i = 0; i < localList.length; i++) {
-
       var checkForm = document.createElement("div");
       var inputField = document.createElement("input");
       inputField.setAttribute("type", "checkbox");
@@ -70,23 +66,19 @@ newPost.addEventListener("click", async function (event) {
   let checkedIng = document.querySelectorAll(".checkboxIng");
   let checkedType = document.querySelectorAll(".checkboxType");
 
-  let ingredientIds = []
-  checkedIng.forEach(checkedIng => {
-    if(checkedIng.checked) {
-    ingredientIds.push(checkedIng.value)
-  }
-  })
+  let ingredientIds = [];
+  checkedIng.forEach((checkedIng) => {
+    if (checkedIng.checked) {
+      ingredientIds.push(checkedIng.value);
+    }
+  });
 
-
-let categoryTypeIds = []
-  checkedType.forEach(checkedType => {
-    if(checkedType.checked) {
-    categoryTypeIds.push(checkedType.value)
-  }
-  })
-
-console.log(ingredientIds);
-console.log(categoryTypeIds);
+  let categoryTypeIds = [];
+  checkedType.forEach((checkedType) => {
+    if (checkedType.checked) {
+      categoryTypeIds.push(checkedType.value);
+    }
+  });
 
   const response = await fetch(`/api/cocktail`, {
     method: "POST",

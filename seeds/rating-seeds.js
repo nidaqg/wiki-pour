@@ -1,4 +1,4 @@
-const { Rating } = require('../models');
+const { Rating } = require("../models");
 
 const ratingData = [
   {

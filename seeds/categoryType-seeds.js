@@ -1,28 +1,28 @@
-const { CategoryType } = require('../models');
+const { CategoryType } = require("../models");
 
 const CategoryTypeData = [
   {
-    categoryType_name: 'Whiskey',
+    categoryType_name: "Whiskey",
     category_id: 1,
   },
   {
-    categoryType_name: 'Aperitif',
+    categoryType_name: "Aperitif",
     category_id: 1,
   },
   {
-    categoryType_name: 'Gin',
+    categoryType_name: "Gin",
     category_id: 1,
   },
   {
-    categoryType_name: 'Vermouth',
+    categoryType_name: "Vermouth",
     category_id: 1,
   },
   {
-    categoryType_name: 'Bourbon',
+    categoryType_name: "Bourbon",
     category_id: 1,
   },
   {
-    categoryType_name: 'Vodka',
+    categoryType_name: "Vodka",
     category_id: 1,
   },
 ];

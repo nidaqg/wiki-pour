@@ -1,4 +1,4 @@
-const { Model, DataTypes} = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
 class Ingredient extends Model {}
@@ -13,7 +13,7 @@ Ingredient.init(
     },
     ingredient_name: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
   },
   {
@@ -21,7 +21,7 @@ Ingredient.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'ingredient',
+    modelName: "ingredient",
   }
 );
 

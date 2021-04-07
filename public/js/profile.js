@@ -1,7 +1,6 @@
-let newBtn = document.querySelector('#newRecipe');
+let newBtn = document.querySelector("#newRecipe");
 
-
-newBtn.addEventListener('click', async function (event) {
-    event.preventDefault();
-    document.location.replace('/profile/newrecipe');
-})
+newBtn.addEventListener("click", async function (event) {
+  event.preventDefault();
+  document.location.replace("/profile/newrecipe");
+});

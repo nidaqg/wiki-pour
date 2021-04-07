@@ -42,24 +42,24 @@
     <h3 class="text-center mt-2">Choose your Cocktail</h3>
     <section class="row row-cols-1 row-cols-lg-2 g-4 m-4">
 
-    {{#each cocktails as |cocktail|}}
-    <section class="col">
-    <section class="card mt-3 mb-3 localCard">
-      <section class="text-center">
-        <img src="/images/wiki-pour-logo.png" alt="logo" class="rounded-circle img-fluid w-25 mt-2 mb-2">
-        <h4>{{cocktail.cocktail_name}}</h4>
-        <h5 class="text-muted">Created by: {{cocktail.user.user_name}}</h5>
-      </section>
-      <section class="card-body text-center">
-        <h5>User Rating:</h5>
-        <p>{{cocktail.rating_average}}</p>
+      {{#each cocktails as |cocktail|}}
+      <section class="col">
+        <section class="card mt-3 mb-3 localCard">
+          <section class="text-center">
+            <img src="/images/wiki-pour-logo.png" alt="logo" class="rounded-circle img-fluid w-25 mt-2 mb-2">
+            <h4>{{cocktail.cocktail_name}}</h4>
+            <h5 class="text-muted">Created by: {{cocktail.user.user_name}}</h5>
+          </section>
+          <section class="card-body text-center">
+            <h5>User Rating:</h5>
+            <p>{{cocktail.rating_average}}</p>
 
-        <a href="/cocktail/{{cocktail.id}}" class="btn btn-dark localBtn">Get the Recipe</a>
+            <a href="/cocktail/{{cocktail.id}}" class="btn btn-dark localBtn">Get the Recipe</a>
+          </section>
+        </section>
       </section>
+      {{/each}}
     </section>
-    </section>
-    {{/each}}
-  </section>
   </section>
 
 </section>

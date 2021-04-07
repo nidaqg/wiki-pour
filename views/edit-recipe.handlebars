@@ -1,26 +1,27 @@
 <section class="row justify-content-center">
-<section class="col-sm-8 justify-content-center text-center mb-4">
+  <section class="col-sm-8 justify-content-center text-center mb-4">
 
-<section class="row">
-<form class="m-3">
-    <h5 class="text-center card-title">Edit Recipe</h5>
-    <section class="mb-3">
-    <label for="recipe_title" class="form-label">Name Your Recipe!</label>
-    <input class="form-control" id="recipeName" name="recipe_title" type="text" value="{{cocktail.cocktail_name}}" />
+    <section class="row">
+      <form class="m-3">
+        <h5 class="text-center card-title">Edit Recipe</h5>
+        <section class="mb-3">
+          <label for="recipe_title" class="form-label">Name Your Recipe!</label>
+          <input class="form-control" id="recipeName" name="recipe_title" type="text"
+            value="{{cocktail.cocktail_name}}" />
+        </section>
+
+        <section class="mb-3">
+          <label for="content" class="form-label">Recipe</label>
+          <input class="form-control" id="recipeContent" name="content" type="text" value="{{cocktail.instructions}}" />
+        </section>
+
+        <a id="editRecipe" class="btn btn-dark localBtn mb-3">Submit</a>
+        <a id="deleteRecipe" class="btn btn-dark localBtn mb-3">Delete Recipe</a>
+
+      </form>
     </section>
 
-    <section class="mb-3">
-    <label for="content" class="form-label">Recipe</label>
-    <input class="form-control" id="recipeContent" name="content" type="text" value="{{cocktail.instructions}}" />
-    </section>
-
-    <a id= "editRecipe" class="btn btn-dark localBtn mb-3">Submit</a>
-    <a id= "deleteRecipe" class="btn btn-dark localBtn mb-3">Delete Recipe</a>
-
-  </form>
-</section>
-
-</section>
+  </section>
 </section>
 
 <script src="/js/edit-recipe.js"></script>

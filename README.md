@@ -31,7 +31,7 @@ This app makes use of the following technologies:
 7 connect-session-sequelize
 8 Browserify
 
-[Click here to view the deployed app]()
+[Click here to view the deployed app](https://wiki-pour.herokuapp.com/)
 
 Alternatively, the repo can be downloaded and run locally. All the npm packages are provided in the package.json file and running npm i from the command line will install them all. Run 'npm start' from the command line to start server.
 
@@ -52,7 +52,7 @@ If the user is inactive for more than 5 minute they will automatically be logged
 ## License
 ![badge](https://img.shields.io/badge/license-MIT-orange)
    
-Copyright (c) [2021] [Nida Ghuman, Gary B, Israel Molestina]
+Copyright (c) [2021] [Nida Ghuman, Gary Basra, Israel Molestina]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -76,14 +76,14 @@ SOFTWARE.
 
 This app has been created collaboratively by : 
 
-[Gary B](https://github.com/grider27)
+[Gary Basra](https://github.com/grider27)
 [Nida Ghuman](https://github.com/nidaqg)
 [Israel Molestina](https://github.com/Israel-Molestina) 
 
 
 The repo for this project can be found here: https://github.com/nidaqg/wiki-pour
 
-Heroku link for deployed project can be found at: 
+Heroku link for deployed project can be found at: https://wiki-pour.herokuapp.com/
 
 
 
